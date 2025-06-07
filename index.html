@@ -3,40 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Video Player</title>
+    <title>Video Player Modern</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>My Awesome Video Player</h1>
+    <header class="main-header">
+        <h1>Video Player Keren Anda</h1>
     </header>
 
-    <main>
-        <div class="video-container">
+    <main class="main-content">
+        <div class="video-player-wrapper">
             <video id="myVideo" class="video-player" controls>
                 <source src="videos/my-video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
+                Browser Anda tidak mendukung elemen video.
             </video>
 
-            <div class="controls">
-                <button id="playPauseBtn">Play</button>
-                <input type="range" id="progressBar" value="0" min="0" max="100">
-                <input type="range" id="volumeControl" value="1" min="0" max="1" step="0.1">
-                <button id="fullscreenBtn">Fullscreen</button>
+            <div class="custom-controls">
+                <button id="playPauseBtn" class="control-btn play-pause-btn">Play</button>
+                <div class="progress-bar-container">
+                    <input type="range" id="progressBar" class="progress-bar" value="0" min="0" max="100">
+                </div>
+                <input type="range" id="volumeControl" class="volume-slider" value="1" min="0" max="1" step="0.1">
+                <button id="fullscreenBtn" class="control-btn fullscreen-btn">Fullscreen</button>
             </div>
         </div>
 
-        <section class="video-list">
-            <h2>Recommended Videos</h2>
-            <ul>
-                <li><a href="#" data-src="videos/video1.mp4">Video 1 Title</a></li>
-                <li><a href="#" data-src="videos/video2.mp4">Video 2 Title</a></li>
+        <section class="video-list-section">
+            <h2>Video Lainnya</h2>
+            <ul class="video-list">
+                <li><a href="#" data-src="videos/video1.mp4">Judul Video 1</a></li>
+                <li><a href="#" data-src="videos/video2.mp4">Judul Video 2</a></li>
+                <li><a href="#" data-src="videos/video3.mp4">Judul Video 3</a></li>
                 </ul>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 My Video Player. All rights reserved.</p>
+    <footer class="main-footer">
+        <p>&copy; 2025 Video Player Keren. Hak Cipta Dilindungi.</p>
     </footer>
 
     <script src="js/script.js"></script>
