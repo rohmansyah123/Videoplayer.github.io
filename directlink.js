@@ -1,40 +1,58 @@
-function openRandomDirectLink() {
-  const directLinks = [
-    "https://link1.com",
-    "https://link2.com",
-    "https://link3.com",
-    "https://link4.com",
-    "https://link5.com",
-    "https://link6.com",
-    "https://link7.com",
-    "https://link8.com",
-    "https://link9.com",
-    "https://link10.com",
-    "https://link11.com",
-    "https://link12.com",
-    "https://link13.com",
-    "https://link14.com",
-    "https://link15.com",
-    "https://link16.com",
-    "https://link17.com",
-    "https://link18.com",
-    "https://link19.com",
-    "https://link20.com"
-  ]; // Ganti dengan 20 URL direct link Anda
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pengalihan Setelah Klik</title>
+</head>
+<body>
 
-  const randomIndex = Math.floor(Math.random() * directLinks.length);
-  const selectedLink = directLinks[randomIndex];
+    <h1>Halaman Utama Anda</h1>
+    <p>Klik tombol di bawah untuk melihat penawaran spesial kami!</p>
+    <button id="redirectButton">Lihat Penawaran Spesial</button>
 
-  window.open(selectedLink, '_blank');
-  console.log(`Membuka tab baru dengan direct link: ${selectedLink}`);
-}
+    <script>
+        // Array berisi 20 URL direct link Anda
+        const directLinks = [
+            "https://link1.com",
+            "https://link2.com",
+            "https://link3.com",
+            "https://link4.com",
+            "https://link5.com",
+            "https://link6.com",
+            "https://link7.com",
+            "https://link8.com",
+            "https://link9.com",
+            "https://link10.com",
+            "https://link11.com",
+            "https://link12.com",
+            "https://link13.com",
+            "https://link14.com",
+            "https://link15.com",
+            "https://link16.com",
+            "https://link17.com",
+            "https://link18.com",
+            "https://link19.com",
+            "https://link20.com"
+        ]; // Ganti dengan 20 URL direct link Anda yang sebenarnya!
 
-// Membuka direct link pertama kali setelah 15 detik
-console.log("Direct link pertama akan dibuka dalam 15 detik...");
-setTimeout(() => {
-  openRandomDirectLink();
+        // Dapatkan tombol dari halaman HTML
+        const redirectButton = document.getElementById('redirectButton');
 
-  // Mengulang pembukaan direct link setiap 30 detik setelah pembukaan pertama
-  console.log("Selanjutnya, direct link acak akan diulang setiap 30 detik.");
-  setInterval(openRandomDirectLink, 30000);
-}, 15000);
+        // Tambahkan 'event listener' untuk mendeteksi klik pada tombol
+        redirectButton.addEventListener('click', function() {
+            // Pilih link secara acak dari array
+            const randomIndex = Math.floor(Math.random() * directLinks.length);
+            const selectedLink = directLinks[randomIndex];
+
+            // Tentukan apakah akan membuka di tab yang sama atau tab baru
+            // Pilihan 1: Membuka di tab baru (lebih disarankan untuk menjaga pengguna di halaman Anda)
+            window.open(selectedLink, '_blank');
+            console.log(`Membuka link acak di tab baru: ${selectedLink}`);
+
+            // Pilihan 2: Mengalihkan di tab yang sama (akan meninggalkan halaman Anda)
+            // window.location.href = selectedLink;
+            // console.log(`Mengalihkan di tab yang sama ke: ${selectedLink}`);
+        });
+    </script>
+
+</body>
+</html>
