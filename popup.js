@@ -86,9 +86,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
-</head>
-<body>
-
     <h1>Selamat Datang di Halaman Kami!</h1>
     <p>Ini adalah konten utama halaman Anda. Popup akan muncul setiap 15 detik.</p>
 
