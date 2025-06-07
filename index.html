@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Player Modern</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="ageVerificationOverlay" class="age-verification-overlay">
+        <div class="age-verification-modal">
+            <h2>Konfirmasi Usia Anda</h2>
+            <p>Untuk mengakses konten ini, Anda harus berusia 18 tahun atau lebih.</p>
+            <button id="confirmAgeBtn" class="confirm-age-btn">Saya berusia 18+ tahun</button>
+            <p class="disclaimer">Dengan menekan tombol ini, Anda mengonfirmasi bahwa Anda telah membaca dan menyetujui persyaratan layanan kami.</p>
+        </div>
+    </div>
     <header class="main-header">
         <h1>Video Player Keren Anda</h1>
     </header>
@@ -32,18 +40,17 @@
         <section class="video-list-section">
             <h2>Video Lainnya</h2>
             <ul class="video-list">
-                <li><a href="https://cdn.videy.co/KfKsjWkC1.mp4" data-src="https://cdn.videy.co/KfKsjWkC1.mp4">Judul Video 1</a></li>
-                <li><a href="https://cdn.videy.co/T6KMNbAf1.mp4" data-src="https://cdn.videy.co/T6KMNbAf1.mp4">Judul Video 2</a></li>
+                <li><a href="#" data-src="videos/video1.mp4">Judul Video 1</a></li>
+                <li><a href="#" data-src="videos/video2.mp4">Judul Video 2</a></li>
                 <li><a href="#" data-src="videos/video3.mp4">Judul Video 3</a></li>
-                </ul>
+            </ul>
         </section>
     </main>
 
     <footer class="main-footer">
         <p>&copy; 2025 Video Player Keren. Hak Cipta Dilindungi.</p>
     </footer>
-<script src="popup.js"></script>
-    <script src="script.js"></script>
-    <script src="directlink.js"></script>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
