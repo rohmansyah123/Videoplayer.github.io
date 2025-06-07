@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const fullscreenBtn = document.getElementById('fullscreenBtn');
     const videoList = document.querySelector('.video-list ul');
 
+    // --- Tambahkan URL Iklan Anda di sini ---
+    const AD_URL = 'https://www.google.com'; // Ganti dengan direct link iklan Anda
+    // --- Akhir URL Iklan ---
+
+    let adShown = false; // Flag untuk melacak apakah iklan sudah ditampilkan
+
     // Inisialisasi progress bar (set max ke durasi video setelah metadata dimuat)
     video.addEventListener('loadedmetadata', () => {
         progressBar.max = video.duration;
@@ -13,12 +19,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 1. Play/Pause functionality
     playPauseBtn.addEventListener('click', () => {
-        if (video.paused) {
-            video.play();
+        if (!adShown) {
+            // Jika iklan belum ditampilkan, buka iklan dan kemudian putar video
+            window.open(AD_URL, '_blank'); // Buka link iklan di tab baru
+            adShown = true; // Set flag menjadi true
+            video.play(); // Putar video setelah iklan dibuka
             playPauseBtn.textContent = 'Pause';
         } else {
-            video.pause();
-            playPauseBtn.textContent = 'Play';
+            // Jika iklan sudah ditampilkan, lanjutkan fungsi play/pause normal
+            if (video.paused) {
+                video.play();
+                playPauseBtn.textContent = 'Pause';
+            } else {
+                video.pause();
+                playPauseBtn.textContent = 'Play';
+            }
         }
     });
 
@@ -34,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     video.addEventListener('ended', () => {
         playPauseBtn.textContent = 'Play';
         progressBar.value = 0; // Reset progress bar
+        adShown = false; // Reset flag iklan agar iklan bisa muncul lagi di pemutaran berikutnya
     });
 
     // 2. Progress Bar
@@ -72,7 +88,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (newVideoSrc) {
                     video.src = newVideoSrc;
                     video.load(); // Memuat video baru
-                    video.play(); // Memutar video baru secara otomatis
+                    
+                    // Reset flag iklan saat video baru dimuat
+                    adShown = false; 
+                    
+                    // Otomatis putar video baru setelah iklan (jika belum ditampilkan)
+                    // Atau langsung putar jika iklan sudah ditampilkan (misalnya, video kedua dalam sesi yang sama)
+                    if (!adShown) {
+                        window.open(AD_URL, '_blank'); // Buka link iklan di tab baru
+                        adShown = true; // Set flag menjadi true
+                    }
+                    video.play();
                     playPauseBtn.textContent = 'Pause';
                 }
             }
